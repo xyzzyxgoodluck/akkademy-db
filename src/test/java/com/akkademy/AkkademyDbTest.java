@@ -19,6 +19,7 @@ public class AkkademyDbTest {
 		TestActorRef<AkkademyDb> actorRef = TestActorRef.create(system, Props.create(AkkademyDb.class));
 		actorRef.tell(new SetRequest("key", "value"), ActorRef.noSender());
 		AkkademyDb akkademyDb = actorRef.underlyingActor();
+		
 		System.out.println(akkademyDb.map.get("key"));
 		assertEquals(akkademyDb.map.get("key"), "value");
 	}
